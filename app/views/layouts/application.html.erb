@@ -10,6 +10,16 @@
   </head>
 
   <body>
+  <% if customer_signed_in? %>
+    <li class="nav-item">
+      <%= link_to 'ログアウト', destroy_customer_session_path, method: :delete, class: 'nav-link text-dark border rounded' %>
+    </li>
+    <% elsif admin_signed_in? %>
+    <li class="nav-item">
+      <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: 'nav-link text-dark border rounded' %>
+    </li>
+    <% else %>
+  <% end %>
     <%= yield %>
   </body>
 </html>
