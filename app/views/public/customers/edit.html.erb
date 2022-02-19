@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-3">
+      <h5 class="daimei">会員情報編集</h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-6">
+    <%= form_with model: @customer, url: public_customers_path, method: :patch, local: true do |f| %>
+    <table>
+      <tr>
+        <th>氏名</th>
+        <td><%= f.text_field :first_name %></td>
+        <td><%= f.text_field :last_name %></td>
+      </tr>
+      <tr>
+        <th>フリガナ</th>
+        <td><%= f.text_field :first_name_kana %></td>
+        <td><%= f.text_field :last_name_kana %></td>
+      </tr>
+      <tr>
+        <th>郵便番号</th>
+        <td><%= f.text_field :postal_code %></td>
+      </tr>
+      <tr>
+        <th>住所</th>
+        <td><%= f.text_area :address, class:"form-control  address", rows:"1" %></td>
+      </tr>
+      <tr>
+        <th>電話番号</th>
+        <td><%= f.text_field :telephone_number %></td>
+      </tr>
+      <tr>
+        <th>メールアドレス</th>
+        <td><%= f.text_field :email %></td>
+      </tr>
+        <% f.hidden_field :is_active, value: true %>
+    </table>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-2"></div>
+    <div class="col-3">
+      <%= f.submit '編集内容を保存', class:"btn btn-success" %>
+    </div>
+    <span class="col-3 d-flex align-items-end justify-content-end">
+      <%= link_to "退会する", customers_check_path, class: "btn btn-danger" %>
+    </span>
+  </div>
+  <% end %>
+</div>

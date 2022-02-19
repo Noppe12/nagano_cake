@@ -1,3 +1,44 @@
 // Place all the styles related to the admin::items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.daimei{
+  margin: 20px 30px;
+  text-align: center;
+  background-color: #DDDDDD;
+}
+
+
+
+.bigbox1{
+  width: auto;
+  text-align: center;
+}
+
+.mainbox1{
+  display: inline-block;
+  vertical-align: top;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+}
+
+.form-group{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.action1{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.label{
+  margin-right: 20px;
+}
+
+.line{
+  padding-bottom: 10px;
+}
+
+

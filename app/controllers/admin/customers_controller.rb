@@ -1,8 +1,8 @@
 class Admin::CustomersController < ApplicationController
-  before_action :if_not_admin
+ # before_action :if_not_admin
 
   def index
-    @customers = Customer.page(params[:page]).reverse_order
+    @customers = Customer.page(params[:page])
   end
 
   def show
@@ -24,9 +24,9 @@ class Admin::CustomersController < ApplicationController
   end
 
   private
-  def if_not_admin
-    redirect_to root_path unless current_user.admin?
-  end
+  #def if_not_admin
+   # redirect_to root_path unless current_user.admin?
+  #end
   def customer_params
     params.require(:customer).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :postal_code, :address, :telephone_number, :email, :is_active)
   end

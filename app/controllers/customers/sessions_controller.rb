@@ -24,4 +24,15 @@ class Customers::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+
+  protected
+
+  def reject_user
+    @customer = Customer.find(params[:id])
+    if @customer
+      if @user.valid_password?(params[:customer][:password]) &&  (@customer.active_for_authentication? == true)
+        redirect_to new_customer_registration_path
+      end
+    end
+  end
 end

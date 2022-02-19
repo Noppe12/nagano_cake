@@ -1,25 +1,38 @@
-     <h2>商品一覧</h2><span>
-       <div>btn"+"</div>
-      <table class='table table-hover table-inverse'>
-        <thead>
-          <tr>
-            <th>商品ID</th>
-            <th>商品名</th>
-            <th>税抜価格</th>
-            <th>ジャンル</th>
-            <th>ステータス</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @items.each do |item| %>
-            <tr>
-              <td><%= item.id %></td>
-              <td><%= link_to item_path(item.id) do %><%= item.name %><% end %></td>
-              <td><%= item.price %></td>
-              <td><%= item.genre %></td>
-              <td><%= item.is_active %></td>
-            </tr>
-          <% end %>
-          <%= paginate @items %>
-        </tbody>
-      </table>
+<div class="container">
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-3">
+      <h4 class="daimei">商品一覧</h4><span>
+    </div>
+  <div class="text-right mt-3"><%= link_to "+", new_admin_item_path, class: "btn btn-info" %></div></span>
+  </div>
+  <table class='table table-hover'>
+    <thead>
+      <tr>
+        <th>商品ID</th>
+        <th>商品名</th>
+        <th>税抜価格</th>
+        <th>ジャンル</th>
+        <th>ステータス</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @items.each do |item| %>
+        <tr>
+          <td><%= item.id %></td>
+          <td><%= link_to admin_item_path(item.id) do %><%= item.name %><% end %></td>
+          <td><%= item.price %></td>
+          <td><%= item.genre.name %></td>
+          <td>
+            <% if item.is_active %>
+              販売中
+            <% else %>
+              販売停止中
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= paginate @items %>
+</div>

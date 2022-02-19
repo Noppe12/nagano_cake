@@ -15,7 +15,7 @@ class Admin::GenresController < ApplicationController
   end
 
   def update
-    @genre = genre.find(params[:id])
+    @genre = Genre.find(params[:id])
     if @genre.update(genre_params)
        flash[:success] = "You have updated book successfully."
        redirect_to admin_genres_path

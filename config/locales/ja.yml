@@ -16,3 +16,6 @@ ja:
         wait_maked: '製作待ち'
         now_maked: '製作中'
         fin_maked: '製作完了'
+  time:
+    formats:
+      default: "20%y/%m/%d"

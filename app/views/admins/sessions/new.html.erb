@@ -1,19 +1,30 @@
-<h2>管理者ログイン</h2>
-
-<%= form_with model: @customer, url: admin_session_path, local: true do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-3">
+      <h4 class="daimei">管理者ログイン</h4>
+    </div>
   </div>
+  <div class="body">
+    <%= form_with model: @admin, url: admin_session_path, local: true do |f| %>
+      <div class="field">
+        <div class="main">
+          メールアドレス
+        </div>
+        <span><%= f.email_field :email, autofocus: true, autocomplete: "email" %></span>
+      </div>
+      <div class="field">
+        <div  class="mainpass">
+          パスワード
+        </div>
+        <span><%= f.password_field :password, autocomplete: "current-password" %></span>
+      </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+      <div class="actions">
+        <%= f.submit "ログイン", class: "follow_submit"%>
+      </div>
+    <% end %>
   </div>
+</div>
 
-  <div class="actions">
-    <%= f.submit "ログイン" %>
-  </div>
-<% end %>
-
-<%= render "admins/shared/links" %>
