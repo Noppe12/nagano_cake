@@ -46,7 +46,7 @@
       <%= f.submit '編集内容を保存', class:"btn btn-success" %>
     </div>
     <span class="col-3 d-flex align-items-end justify-content-end">
-      <%= link_to "退会する", customers_check_path, class: "btn btn-danger" %>
+      <%= link_to "退会する", customers_check_path, class: "btn btn-danger", "data-confirm" => "本当に退会しますか？" %>
     </span>
   </div>
   <% end %>
